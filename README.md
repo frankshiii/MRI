@@ -1,8 +1,8 @@
-# MRI for KOReader
+# MRI-Mobile_Reading_Intelligence
 
 简体中文 | [English](README.en.md)
 
-[![CI](https://github.com/frankshiii/MRI/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/MRI/actions/workflows/ci.yml)
+[![CI](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
 MRI 是一个面向 Kindle 小屏和 KOReader 的 EPUB AI 阅读助手，重点解决长篇阅读中的人物回忆、章节回顾、地点与概念整理，以及基于当前阅读进度的问答。
@@ -20,7 +20,7 @@ MRI 是一个面向 Kindle 小屏和 KOReader 的 EPUB AI 阅读助手，重点�
 
 ## 安装
 
-从 [Releases](https://github.com/frankshiii/MRI/releases) 下载 ZIP，解压后确认目录名称为 `mri.koplugin`，复制到：
+从 [Releases](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/releases) 下载 ZIP，解压后确认目录名称为 `mri.koplugin`，复制到：
 
 ```text
 koreader/plugins/mri.koplugin

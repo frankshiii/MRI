@@ -9,3 +9,6 @@ mri.koplugin/config.json
 
 # Unrelated local reference plugin.
 assistant.koplugin/
+
+# Local demo recordings.
+/MRI/
