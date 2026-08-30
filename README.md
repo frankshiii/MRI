@@ -1,5 +1,7 @@
 # MRI for KOReader
 
+简体中文 | [English](README.en.md)
+
 [![CI](https://github.com/frankshiii/MRI/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/MRI/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
@@ -40,6 +42,10 @@ macOS 开发者可以双击 `同步 MRI 到 Kindle.command`，将当前源码同
 ```
 
 每次推送和 Pull Request 都会运行 CI。推送 `v0.1.0` 形式的标签后，CD 会自动检查源码、生成安装 ZIP，并创建 GitHub Release。完整流程见 [CI/CD 学习指南](docs/CI-CD.md)。
+
+## KOReader contrib
+
+KOReader 的 `contrib` 仓库通过 Git submodule 收录第三方插件。MRI 会先完成新版 KOReader 和 Kindle 实机验证，再提交收录申请。当前仓库保留开发文件与 `mri.koplugin` 子目录；接入时使用根层直接包含 `_meta.lua` 的 `koreader-contrib` 分支。准备和提交步骤见 [KOReader contrib 指南](docs/KOREADER-CONTRIB.md)。
 
 ## 贡献
 
