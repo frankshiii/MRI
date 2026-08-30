@@ -1,4 +1,4 @@
-# MRI-Mobile_Reading_Intelligence
+# MRI: Mobile Reading Intelligence
 
 MRI is a spoiler-aware EPUB reading assistant designed for small Kindle screens. Its interface and answer language follow KOReader's Chinese or English UI setting.
 

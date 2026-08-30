@@ -1,8 +1,8 @@
-# MRI-Mobile_Reading_Intelligence
+# MRI: Mobile Reading Intelligence
 
 [简体中文](README.md) | English
 
-[![CI](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/actions/workflows/ci.yml)
+[![CI](https://github.com/frankshiii/mri/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/mri/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
 MRI is an AI reading companion for EPUB books on small-screen Kindle devices running KOReader. It helps readers recall characters and earlier chapters, organise places and concepts, and ask questions within the current reading boundary.
@@ -20,7 +20,7 @@ The project is in early testing. Its prototype baseline is KOReader `v2025.08`, 
 
 ## Installation
 
-Download the ZIP from [Releases](https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence/releases). After extracting it, confirm that the directory is named `mri.koplugin`, then copy it to:
+Download the ZIP from [Releases](https://github.com/frankshiii/mri/releases). After extracting it, confirm that the directory is named `mri.koplugin`, then copy it to:
 
 ```text
 koreader/plugins/mri.koplugin

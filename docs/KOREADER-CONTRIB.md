@@ -50,7 +50,7 @@ prompts.lua
 gh repo fork koreader/contrib --clone
 cd contrib
 git switch -c add-mri
-git submodule add -b koreader-contrib https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence.git mri.koplugin
+git submodule add -b koreader-contrib https://github.com/frankshiii/mri.git mri.koplugin
 git add .gitmodules mri.koplugin
 git commit -m "Add MRI plugin"
 git push -u origin add-mri
@@ -97,7 +97,7 @@ Then fork `koreader/contrib` and add MRI:
 gh repo fork koreader/contrib --clone
 cd contrib
 git switch -c add-mri
-git submodule add -b koreader-contrib https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence.git mri.koplugin
+git submodule add -b koreader-contrib https://github.com/frankshiii/mri.git mri.koplugin
 git add .gitmodules mri.koplugin
 git commit -m "Add MRI plugin"
 git push -u origin add-mri
