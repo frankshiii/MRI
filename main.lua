@@ -34,8 +34,8 @@ local DIRECTORY_KINDS = { "people", "places", "concepts" }
 local RESPONSE_CACHE_VERSION = 1
 local RESPONSE_CACHE_MAX_ENTRIES = 80
 local RESPONSE_CACHE_PROGRESS_DELTA = 5
-local MRI_VERSION = "0.1.0-dev"
-local MRI_GITHUB_URL = "https://github.com/frankshiii/MRI"
+local MRI_VERSION = "0.1.0"
+local MRI_GITHUB_URL = "https://github.com/frankshiii/MRI-Mobile_Reading_Intelligence"
 
 local function nowSeconds()
     if socket_ok and socket and socket.gettime then
