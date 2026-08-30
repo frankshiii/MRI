@@ -5,6 +5,7 @@ local ApiClient = require("api_client")
 local ButtonDialog = require("ui/widget/buttondialog")
 local ComputerConfig = require("computer_config")
 local DataStorage = require("datastorage")
+local Device = require("device")
 local Dispatcher = require("dispatcher")
 local InfoMessage = require("ui/widget/infomessage")
 local InputDialog = require("ui/widget/inputdialog")
@@ -33,6 +34,8 @@ local DIRECTORY_KINDS = { "people", "places", "concepts" }
 local RESPONSE_CACHE_VERSION = 1
 local RESPONSE_CACHE_MAX_ENTRIES = 80
 local RESPONSE_CACHE_PROGRESS_DELTA = 5
+local MRI_VERSION = "0.1.0-dev"
+local MRI_GITHUB_URL = "https://github.com/frankshiii/MRI"
 
 local function nowSeconds()
     if socket_ok and socket and socket.gettime then
@@ -2009,6 +2012,51 @@ function MRI:responseLengthMenuItems()
     return items
 end
 
+function MRI:showAbout()
+    local version = self.meta and self.meta.version or MRI_VERSION
+    local about
+    about = TextViewer:new{
+        title = _("关于 MRI"),
+        text = table.concat({
+            "MRI",
+            "",
+            _("版本") .. ": " .. tostring(version),
+            _("作者") .. ": Frank Shi",
+            "Copyright © 2026 Frank Shi",
+            _("许可证") .. ": " .. _("GNU AGPL v3.0 或更新版本"),
+            "",
+            _("面向 Kindle 和 KOReader 的 EPUB AI 阅读助手。"),
+            "",
+            _("项目主页") .. ":",
+            MRI_GITHUB_URL,
+        }, "\n"),
+        justified = false,
+        buttons_table = {
+            {
+                {
+                    text = _("打开 GitHub"),
+                    callback = function()
+                        if type(Device.canOpenLink) == "function"
+                                and Device:canOpenLink()
+                                and type(Device.openLink) == "function" then
+                            Device:openLink(MRI_GITHUB_URL)
+                        else
+                            self:showInfo(_("这台设备无法直接打开网页。GitHub 地址已显示在页面中。"), 3)
+                        end
+                    end,
+                },
+                {
+                    text = _("关闭"),
+                    callback = function()
+                        UIManager:close(about)
+                    end,
+                },
+            },
+        },
+    }
+    UIManager:show(about)
+end
+
 function MRI:addToMainMenu(menu_items)
     menu_items.mri = {
         text = "MRI",
@@ -2141,7 +2189,7 @@ function MRI:addToMainMenu(menu_items)
                         callback = function() self:testConnection() end,
                     },
                     {
-                        text = _("高级设置"),
+                        text = _("更多"),
                         sub_item_table = {
                             {
                                 text = _("在 Kindle 设置 API Key（备用）"),
@@ -2154,6 +2202,11 @@ function MRI:addToMainMenu(menu_items)
                             {
                                 text = _("设置接口地址"),
                                 callback = function() self:editProviderField("endpoint", _("接口地址")) end,
+                            },
+                            {
+                                text = _("关于 MRI"),
+                                callback = function() self:showAbout() end,
+                                separator = true,
                             },
                         },
                     },
