@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lua parser
+        run: npm install --global luaparse@0.3.1
+
+      - name: Validate source
+        run: ./scripts/check.sh
+
+      - name: Build release package
+        env:
+          RELEASE_VERSION: ${{ github.ref_name }}
+        run: ./scripts/package.sh "${RELEASE_VERSION#v}"
+
+      - name: Create GitHub Release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_VERSION: ${{ github.ref_name }}
+        run: >-
+          gh release create "$RELEASE_VERSION"
+          "dist/MRI-${RELEASE_VERSION#v}.zip"
+          --verify-tag
+          --generate-notes
+          --title "MRI ${RELEASE_VERSION#v}"

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lua parser
+        run: npm install --global luaparse@0.3.1
+
+      - name: Validate source
+        run: ./scripts/check.sh
+
+      - name: Build test package
+        run: ./scripts/package.sh ci
+
+      - name: Upload test package
+        uses: actions/upload-artifact@v4
+        with:
+          name: MRI-ci
+          path: dist/MRI-ci.zip
+          if-no-files-found: error
