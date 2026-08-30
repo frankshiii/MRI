@@ -1,0 +1,196 @@
+-- SPDX-License-Identifier: AGPL-3.0-or-later
+-- Copyright (C) 2026 Frank
+
+local I18N = {}
+
+local english = {
+    ["目前只支持 EPUB。"] = "EPUB is the only supported format for now.",
+    ["信息"] = "Info",
+    ["MRI 已载入"] = "MRI loaded",
+    ["MRI 设置迁移"] = "MRI settings migration",
+    ["已保留旧版设置"] = "Previous settings were preserved",
+    ["运行日志"] = "Activity log",
+    ["测试回顾速度（已读内容）"] = "Benchmark recap speed (text read so far)",
+    ["回顾测速"] = "Recap benchmark",
+    ["回顾测速 · 整段"] = "Recap benchmark · Whole",
+    ["回顾测速 · 分段"] = "Recap benchmark · Split",
+    ["回顾测速 · 合并"] = "Recap benchmark · Merge",
+    ["正在测试整段回顾…轻触可取消"] = "Testing whole-text recap… Tap to cancel",
+    ["正在测试分段回顾…轻触可取消"] = "Testing split recap… Tap to cancel",
+    ["正在测试合并回顾…轻触可取消"] = "Testing recap merge… Tap to cancel",
+    ["回顾测速正在运行。"] = "A recap benchmark is already running.",
+    ["当前内容只有一段，无需比较。"] = "The current text fits in one segment, so there is nothing to compare.",
+    ["测速完成。整段 %.1f 秒；分段 %.1f 秒。详情已写入运行日志。"] = "Benchmark complete. Whole: %.1f s; split: %.1f s. Details were written to the activity log.",
+    ["测速未完整完成，错误和耗时已写入运行日志。"] = "The benchmark did not complete; errors and timing were written to the activity log.",
+    ["还没有运行日志。"] = "There is no activity log yet.",
+    ["运行日志已清空。"] = "Activity log cleared.",
+    ["清空"] = "Clear",
+    ["AI 请求"] = "AI request",
+    ["开始"] = "Started",
+    ["失败"] = "Failed",
+    ["完成"] = "Completed",
+    ["重试"] = "Retrying",
+    ["命中缓存"] = "Cache hit",
+    ["跳过"] = "Skipped",
+    ["自动回顾"] = "Automatic recap",
+    ["回顾 · 整段"] = "Recap · Whole",
+    ["回顾 · 分段"] = "Recap · Split",
+    ["回顾 · 合并"] = "Recap · Merge",
+    ["整段超过服务上下文限制"] = "Whole text exceeded the service context limit",
+    ["网络未连接"] = "Network is offline",
+    ["电脑配置 · 已读取"] = "Computer config · Loaded",
+    ["电脑配置 · 格式错误"] = "Computer config · Invalid",
+    ["电脑配置 · 未创建"] = "Computer config · Missing",
+    ["配置已读取。修改后无需在 Kindle 重复输入 Key。"] = "Config loaded. Changes made on the computer are picked up automatically.",
+    ["测试连接"] = "Test connection",
+    ["正在测试连接…轻触可取消"] = "Testing connection… Tap to cancel",
+    ["连接正常。"] = "Connection successful.",
+    ["回答长度 · "] = "Response length · ",
+    ["短"] = "Short",
+    ["中"] = "Medium",
+    ["长"] = "Long",
+    ["MRI 先显示速览"] = "Show MRI quick view first",
+    ["后台预生成资料表"] = "Prepare reference lists in background",
+    ["资料表只依据本书文字"] = "Use only book text for reference lists",
+    ["自动混合"] = "Automatic hybrid",
+    ["只依据本书"] = "Book text only",
+    ["扩大样本"] = "Expanded excerpts",
+    ["模型需要更多书内样本"] = "The model needs more book excerpts",
+    ["正在补充书内样本…轻触可取消"] = "Adding book excerpts… Tap to cancel",
+    ["无法识别返回内容"] = "Could not recognize the returned content",
+    ["只保存了 %d/3 张资料表"] = "Saved only %d/3 reference lists",
+    ["已更新至 %.1f%%"] = "Updated through %.1f%%",
+    ["JSON 格式错误"] = "Invalid JSON",
+    ["请在电脑上编辑 mri.koplugin/config.json。"] = "Edit mri.koplugin/config.json on your computer.",
+    ["文件："] = "File: ",
+    ["关闭"] = "Close",
+    ["继续问"] = "Follow up",
+    ["询问 · "] = "Ask · ",
+    ["输入问题"] = "Enter a question",
+    ["取消"] = "Cancel",
+    ["提问"] = "Ask",
+    ["AI 正在阅读…轻触可取消"] = "MRI is reading… Tap to cancel",
+    ["回答"] = "Answer",
+    ["当前没有可继续的对话。"] = "There is no active conversation.",
+    ["AI 正在回答…轻触可取消"] = "MRI is answering… Tap to cancel",
+    ["临时对话已清空。"] = "Temporary conversation cleared.",
+    ["MRI 请选择一个人物、地点或短词。"] = "Select a person, place, or short term for MRI.",
+    ["MRI 正在整理条目…轻触可取消"] = "MRI is preparing the entry… Tap to cancel",
+    ["AI 正在回顾…轻触可取消"] = "MRI is preparing a recap… Tap to cancel",
+    ["AI 正在合并回顾…轻触可取消"] = "MRI is combining the recap… Tap to cancel",
+    ["已取消"] = "Cancelled",
+    ["回顾 · "] = "Recap · ",
+    ["还没有自动回顾。"] = "No automatic recap yet.",
+    ["上次自动回顾 · "] = "Last automatic recap · ",
+    ["章节"] = "Chapter",
+    ["人物表"] = "People",
+    ["地点表"] = "Places",
+    ["概念表"] = "Concepts",
+    ["更新于第 "] = "Updated at page ",
+    [" 页"] = "",
+    ["更新"] = "Update",
+    ["正在整理"] = "Preparing ",
+    ["回顾阅读"] = "Reading recap",
+    ["已缓存的回顾"] = "Cached recap",
+    ["当前章到这里"] = "Current chapter to here",
+    ["前两章"] = "Previous two chapters",
+    ["开头到这里"] = "Start to current position",
+    ["全书简介"] = "Book overview",
+    ["全书"] = "Whole book",
+    ["全书 · 含剧透"] = "Whole book · Spoilers",
+    ["已读内容 · %.1f%%"] = "Read so far · %.1f%%",
+    ["上次自动回顾"] = "Last automatic recap",
+    ["问这本书"] = "Ask this book",
+    ["Key 会以明文保存在本机 KOReader 设置中，不会写入日志。"] = "The key is stored as plain text in local KOReader settings and is never written to logs.",
+    ["保存"] = "Save",
+    ["已保存。"] = "Saved.",
+    ["人物与地点"] = "People and places",
+    ["人物、地点与概念"] = "People, places, and concepts",
+    ["更新人物表"] = "Update people",
+    ["更新地点表"] = "Update places",
+    ["更新概念表"] = "Update concepts",
+    ["清除临时对话"] = "Clear temporary conversation",
+    ["AI 服务 · "] = "AI service · ",
+    ["AI 服务与设置 · "] = "AI service and settings · ",
+    ["高级设置"] = "Advanced settings",
+    ["在 Kindle 设置 API Key（备用）"] = "Set API key on Kindle (fallback)",
+    ["设置模型"] = "Set model",
+    ["模型"] = "Model",
+    ["设置接口地址"] = "Set endpoint",
+    ["接口地址"] = "Endpoint",
+    ["允许当前位置后剧透"] = "Allow spoilers beyond current position",
+    ["自动回顾刚读完的章节"] = "Automatically recap finished chapters",
+    ["生成后立即显示回顾"] = "Show recap immediately",
+    ["使用与隐私说明"] = "Usage and privacy",
+    ["只支持 EPUB。每次请求附带书名和阅读进度；正文只发送当前位置之前、或你明确选中的文字。对话和临时上下文关书即清空；自动回顾、章节记忆、人物表和地点表随本书保存。API Key 明文保存在 Kindle 本机。"] = "EPUB only. Every request includes the book and reading progress; book text is limited to text before the current position or text you explicitly select. Conversations and temporary context are cleared when the book closes. Recaps, chapter memories, people, and places are stored with the book. API keys are stored as plain text on the Kindle.",
+    ["只支持 EPUB。每次请求附带书名和阅读进度。剧透关闭时，只发送当前位置之前或你明确选中的文字；剧透开启时，MRI、全书简介、问这本书和人物地点概念表可以发送全书样本。对话关书即清空；自动回顾、章节记忆和三个资料表随本书保存。API Key 明文保存在 Kindle 本机。"] = "EPUB only. Every request includes the book and reading progress. With spoilers off, MRI sends only text before the current position or text you explicitly select. With spoilers on, MRI, book overview, Ask this book, and the people, places, and concepts lists may send excerpts from the whole book. Conversations clear when the book closes; recaps, chapter memories, and the three lists are stored with the book. API keys are plain text on the Kindle.",
+    ["只支持 EPUB。每次请求附带书名和阅读进度。剧透关闭时，只发送当前位置之前或你明确选中的文字；剧透开启时，MRI、全书简介、问这本书和人物地点概念表可以发送全书样本。连续对话关书即清空；自动回顾、章节记忆、三个资料表和最多 80 条 AI 回答缓存随本书保存。API Key 明文保存在 Kindle 本机。"] = "EPUB only. Every request includes the book and reading progress. With spoilers off, MRI sends only text before the current position or text you explicitly select. With spoilers on, MRI, book overview, Ask this book, and the three reference lists may send excerpts from the whole book. Follow-up chat clears when the book closes; recaps, chapter memories, the three lists, and up to 80 AI answers are stored with the book. API keys are plain text on the Kindle.",
+    ["AI 正在生成全书简介…轻触可取消"] = "MRI is preparing the book overview… Tap to cancel",
+
+    ["无法生成请求："] = "Could not build request: ",
+    ["网络请求失败："] = "Network request failed: ",
+    ["网络不可用："] = "Network unavailable: ",
+    ["未知错误"] = "Unknown error",
+    ["服务返回了无法解析的数据"] = "The service returned unreadable data",
+    ["AI 服务返回错误"] = "AI service error",
+    ["AI 服务没有返回正文"] = "The AI service returned no answer",
+    ["未选择 AI 服务"] = "No AI service selected",
+    ["接口地址必须以 http:// 或 https:// 开头"] = "The endpoint must start with http:// or https://",
+    ["请先填写模型名称"] = "Set a model name first",
+    ["请先填写这个服务的 API Key"] = "Set an API key for this service first",
+    ["请求失败（HTTP "] = "Request failed (HTTP ",
+
+    ["电脑配置文件为空或过大"] = "The computer config is empty or too large",
+    ["config.json 格式错误"] = "Invalid config.json",
+    ["api_keys 必须是 JSON 对象"] = "api_keys must be a JSON object",
+    ["models 必须是 JSON 对象"] = "models must be a JSON object",
+    ["endpoints 必须是 JSON 对象"] = "endpoints must be a JSON object",
+
+    ["无法确定阅读范围"] = "Could not determine the reading range",
+    ["阅读范围无效"] = "Invalid reading range",
+    ["正在读取 EPUB 文字…轻触可取消"] = "Reading EPUB text… Tap to cancel",
+    ["无法读取这段 EPUB 文字"] = "Could not read this EPUB text",
+    ["这个范围没有可读取的文字"] = "There is no readable text in this range",
+    ["（读到这里）"] = " (to current position)",
+    ["当前进度前还没有完整章节"] = "There are no complete chapters before the current position",
+    ["刚读完的章节"] = "Finished chapter",
+    ["没有有效选中文字"] = "No valid selected text",
+    ["选中文字"] = "Selected text",
+    ["请选择人物、地点或词语"] = "Select a person, place, or term",
+    ["正在查找此前出现的位置…"] = "Finding earlier mentions…",
+    ["正在查找全书出现位置…"] = "Finding mentions across the book…",
+    ["第 "] = "Page ",
+    ["在当前位置之前没有找到相关文字"] = "No relevant text was found before the current position",
+    ["全书没有找到相关文字"] = "No relevant text was found in the book",
+
+    ["自定义 OpenAI 兼容"] = "Custom OpenAI-compatible",
+    ["自定义 Anthropic 兼容"] = "Custom Anthropic-compatible",
+}
+
+local function current_language()
+    local settings = rawget(_G, "G_reader_settings")
+    if settings and settings.readSetting then
+        local language = settings:readSetting("language")
+        if type(language) == "string" then
+            return language
+        end
+    end
+    local ok, gettext = pcall(require, "gettext")
+    if ok and type(gettext.current_lang) == "string" then
+        return gettext.current_lang
+    end
+    return "en"
+end
+
+function I18N:isChinese()
+    return current_language():lower():match("^zh") ~= nil
+end
+
+return setmetatable(I18N, {
+    __call = function(self, text)
+        if self:isChinese() then
+            return text
+        end
+        return english[text] or text
+    end,
+})

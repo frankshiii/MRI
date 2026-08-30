@@ -1,0 +1,32 @@
+{
+  "api_keys": {
+    "openai": "",
+    "anthropic": "",
+    "gemini": "",
+    "qwen": "",
+    "deepseek": "",
+    "kimi": "",
+    "custom_openai": "",
+    "custom_anthropic": ""
+  },
+  "models": {
+    "openai": "gpt-4.1-mini",
+    "anthropic": "claude-haiku-4-5",
+    "gemini": "gemini-2.5-flash-lite",
+    "qwen": "qwen-plus",
+    "deepseek": "deepseek-v4-flash",
+    "kimi": "kimi-k2.5",
+    "custom_openai": "",
+    "custom_anthropic": ""
+  },
+  "endpoints": {
+    "openai": "",
+    "anthropic": "",
+    "gemini": "",
+    "qwen": "",
+    "deepseek": "",
+    "kimi": "",
+    "custom_openai": "",
+    "custom_anthropic": ""
+  }
+}
