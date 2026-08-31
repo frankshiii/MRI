@@ -37,6 +37,7 @@ done < <(find "$PLUGIN_DIR" -type f -name '*.lua' ! -name '*.bak-*' | sort)
 python3 -m json.tool "$PLUGIN_DIR/config.example.json" >/dev/null
 bash -n "$ROOT_DIR/scripts/check.sh"
 bash -n "$ROOT_DIR/scripts/package.sh"
+zsh -n "$ROOT_DIR/同步 MRI 到 Kindle.command"
 
 if git -C "$ROOT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1 \
     && git -C "$ROOT_DIR" ls-files --error-unmatch mri.koplugin/config.json >/dev/null 2>&1; then

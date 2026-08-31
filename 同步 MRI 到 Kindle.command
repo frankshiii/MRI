@@ -84,6 +84,7 @@ rsync_options=(
     --delete
     --itemize-changes
     --exclude=.DS_Store
+    --exclude='._*'
     --exclude='*.bak-*'
 )
 
@@ -98,7 +99,11 @@ echo "来源：$SOURCE_DIR"
 echo "目标：$TARGET_DIR"
 echo
 
-/usr/bin/rsync "${rsync_options[@]}" "$SOURCE_DIR/" "$TARGET_DIR/"
+/usr/bin/env COPYFILE_DISABLE=1 /usr/bin/rsync "${rsync_options[@]}" "$SOURCE_DIR/" "$TARGET_DIR/"
+
+# macOS may leave AppleDouble metadata on FAT volumes even when the source
+# names are excluded. They are never part of a KOReader plugin.
+/usr/bin/find "$TARGET_DIR" -maxdepth 1 -type f -name '._*' -delete
 
 for file in "${required_files[@]}"; do
     if ! /usr/bin/cmp -s "$SOURCE_DIR/$file" "$TARGET_DIR/$file"; then
