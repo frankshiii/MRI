@@ -25,6 +25,9 @@ jobs:
       - name: Install Lua parser
         run: npm install --global luaparse@0.3.1
 
+      - name: Install zsh
+        run: sudo apt-get update && sudo apt-get install --yes zsh
+
       - name: Validate source
         run: ./scripts/check.sh
 
