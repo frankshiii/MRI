@@ -12,7 +12,7 @@ KOReader `contrib` 收录维护范围以外的第三方插件。它当前要求�
 - 每个插件以 Git submodule 指向自己的上游仓库。
 - 上游仓库提供功能说明和设备或 KOReader 版本兼容信息。
 
-MRI 已有公开仓库、双语文档、许可证和 CI。提交前还要完成目标 KOReader 版本与 Kindle 实机验证，并发布一个稳定标签。
+MRI 已有公开仓库、双语文档、许可证和 CI，也已发布 `v0.1.0`。Kindle Oasis 实机已通过 KOReader `v2025.08` 和 `v2026.07.1` 验证；提交到 contrib 的 Pull Request 为 [koreader/contrib#170](https://github.com/koreader/contrib/pull/170)。
 
 ### 为什么需要专用分支
 
@@ -77,7 +77,7 @@ KOReader `contrib` hosts third-party plugins outside KOReader's core maintenance
 - Each plugin must be a Git submodule pointing to its upstream repository.
 - The upstream repository must document the plugin and its device or KOReader compatibility.
 
-MRI already has a public upstream repository, bilingual documentation, a licence, and CI. Before applying, it still needs physical Kindle testing against the target KOReader release and a stable tagged release.
+MRI has a public upstream repository, bilingual documentation, a licence, CI, and a stable `v0.1.0` release. It has been tested on a Kindle Oasis with KOReader `v2025.08` and `v2026.07.1`; the contrib submission is [koreader/contrib#170](https://github.com/koreader/contrib/pull/170).
 
 ### Dedicated plugin branch
 

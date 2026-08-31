@@ -7,7 +7,7 @@
 
 MRI is an AI reading companion for EPUB books on small-screen Kindle devices running KOReader. It helps readers recall characters and earlier chapters, organise places and concepts, and ask questions within the current reading boundary.
 
-The project is in early testing. Its prototype baseline is KOReader `v2025.08`, with `v2026.07` as the intended release baseline. PDF is not currently supported.
+The project is in early testing and has been tested on a Kindle Oasis with KOReader `v2025.08` and `v2026.07.1`. PDF is not currently supported.
 
 ## Features
 

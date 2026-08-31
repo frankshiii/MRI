@@ -25,8 +25,7 @@ MRI 是一款面向小屏 Kindle 的 EPUB 阅读助手。它只把明确的阅�
 
 ## 兼容范围
 
-- 原型兼容基线：KOReader `v2025.08`。
-- 正式目标基线：KOReader `v2026.07`。
+- 已在 Kindle Oasis 上实机验证 KOReader `v2025.08` 和 `v2026.07.1`。
 - 当前只支持 EPUB，不处理 PDF。
 
 ## 后续想法（暂不开发）

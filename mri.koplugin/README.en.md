@@ -23,7 +23,7 @@ MRI is a spoiler-aware EPUB reading assistant designed for small Kindle screens.
 - Benchmark one whole-text request against the current split-and-merge recap flow. The activity log records input size, estimated tokens, per-request latency, and total latency. The benchmark uses real API quota.
 - Use OpenAI, Anthropic, Gemini, Qwen, DeepSeek, Kimi, or custom compatible endpoints.
 
-MRI currently supports EPUB only. The prototype baseline is KOReader `v2025.08`; the intended release baseline is `v2026.07`.
+MRI currently supports EPUB only. It has been tested on a Kindle Oasis with KOReader `v2025.08` and `v2026.07.1`.
 
 ## Installation
 

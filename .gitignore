@@ -12,3 +12,7 @@ assistant.koplugin/
 
 # Local demo recordings.
 /MRI/
+
+# Private project memory and local device backups.
+/.local/
+/backups/
