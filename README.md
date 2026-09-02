@@ -1,58 +1,58 @@
 # MRI: Mobile Reading Intelligence
 
-简体中文 | [English](README.en.md)
+[简体中文](README.zh-CN.md) | English
 
 [![CI](https://github.com/frankshiii/mri/actions/workflows/ci.yml/badge.svg)](https://github.com/frankshiii/mri/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
-MRI 是一个面向 Kindle 小屏和 KOReader 的 EPUB AI 阅读助手，重点解决长篇阅读中的人物回忆、章节回顾、地点与概念整理，以及基于当前阅读进度的问答。
+MRI is an AI reading companion for EPUB books on small-screen Kindle devices running KOReader. It helps readers recall characters and earlier chapters, organise places and concepts, and ask questions within the current reading boundary.
 
-项目目前处于早期测试阶段，已在 Kindle Oasis 上实机验证 KOReader `v2025.08` 和 `v2026.07.1`。目前只支持 EPUB。
+The project is in early testing and has been tested on a Kindle Oasis with KOReader `v2025.08` and `v2026.07.1`. PDF is not currently supported.
 
-## 功能
+## Features
 
-- 选中文字后直接使用 MRI，自动识别人名、地点、概念或段落。
-- 回顾当前章、前两章或从开头到当前位置，并默认限制剧透。
-- 生成人物表、地点表和概念表；名著可使用自动混合知识，小众作品自动扩大书内样本。
-- 对相同问题和条目使用每本书独立的本地缓存。
-- 支持 OpenAI、Anthropic、Gemini、Qwen、DeepSeek、Kimi 和自定义兼容接口。
-- API Key、模型和接口地址可以在电脑上配置。
+- Use one MRI action on selected text; it adapts to a person, place, concept, or passage.
+- Recap the current chapter, the previous two chapters, or everything read so far, with spoiler protection enabled by default.
+- Build people, places, and concept lists. Hybrid mode can use model knowledge for familiar books and expands book excerpts for less familiar works.
+- Cache repeated questions and MRI entries separately for each book.
+- Connect to OpenAI, Anthropic, Gemini, Qwen, DeepSeek, Kimi, and custom compatible endpoints.
+- Configure API keys, model names, and endpoints from a computer.
 
-## 安装
+## Installation
 
-从 [Releases](https://github.com/frankshiii/mri/releases) 下载 ZIP，解压后确认目录名称为 `mri.koplugin`，复制到：
+Download the ZIP from [Releases](https://github.com/frankshiii/mri/releases). After extracting it, confirm that the directory is named `mri.koplugin`, then copy it to:
 
 ```text
 koreader/plugins/mri.koplugin
 ```
 
-完整退出并重新启动 KOReader。
+Fully quit and restart KOReader.
 
-如需在电脑填写 API Key，将 `mri.koplugin/config.example.json` 复制为 `mri.koplugin/config.json`，再填写自己的配置。`config.json` 已被 Git 忽略，也不会进入发布包。
+To configure API keys on a computer, copy `mri.koplugin/config.example.json` to `mri.koplugin/config.json`, then enter your own settings. Git ignores `config.json`, and release packages exclude it.
 
-macOS 开发者可以双击 `同步 MRI 到 Kindle.command`，将当前源码同步到已连接的 Kindle。脚本会把旧的 `aireader.koplugin` 目录迁移为 `mri.koplugin`，插件也会迁移旧版设置和每本书缓存。
+On macOS, developers can double-click `同步 MRI 到 Kindle.command` to sync the current source to a connected Kindle. The script migrates an old `aireader.koplugin` directory to `mri.koplugin`; MRI also migrates legacy settings and per-book caches.
 
-详细功能与隐私说明见 [中文文档](mri.koplugin/README.md)；English documentation is available [here](mri.koplugin/README.en.md).
+See the [detailed English documentation](mri.koplugin/README.md) for feature and privacy details. The [Chinese documentation](mri.koplugin/README.zh-CN.md) is also available.
 
-## 开发与发布
+## Development and releases
 
 ```bash
 ./scripts/check.sh
 ./scripts/package.sh dev
 ```
 
-每次推送和 Pull Request 都会运行 CI。推送 `v0.1.0` 形式的标签后，CD 会自动检查源码、生成安装 ZIP，并创建 GitHub Release。完整流程见 [CI/CD 学习指南](docs/CI-CD.md)。
+CI runs on every push and pull request. Pushing a tag such as `v0.1.0` triggers the release workflow, validates the source, builds the installation ZIP, and creates a GitHub Release. See the [CI/CD guide](docs/CI-CD.md) for the full workflow.
 
 ## KOReader contrib
 
-KOReader 的 `contrib` 仓库通过 Git submodule 收录第三方插件。MRI 会先完成新版 KOReader 和 Kindle 实机验证，再提交收录申请。当前仓库保留开发文件与 `mri.koplugin` 子目录；接入时使用根层直接包含 `_meta.lua` 的 `koreader-contrib` 分支。准备和提交步骤见 [KOReader contrib 指南](docs/KOREADER-CONTRIB.md)。
+KOReader's `contrib` repository includes third-party plugins as Git submodules. MRI will apply after testing on the target KOReader release and a physical Kindle. The `main` branch keeps development files around a nested `mri.koplugin` directory, while a dedicated `koreader-contrib` branch will expose `_meta.lua` at its root. See the [KOReader contrib guide](docs/KOREADER-CONTRIB.md) for preparation and submission steps.
 
-## 贡献
+## Contributing
 
-欢迎提交问题和 Pull Request。开始前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 和 [SECURITY.md](SECURITY.md)。
+Issues and pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) first.
 
-## 许可
+## License
 
 Copyright (C) 2026 Frank
 
-以 GNU Affero General Public License v3.0 或更新版本发布，详见 [LICENSE](LICENSE)。
+Licensed under the GNU Affero General Public License v3.0 or later. See [LICENSE](LICENSE).
